@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-main);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+// ---
+
+:root {
+  &[data-theme="1"] {
+    // ---- THEME 1
+
+    // bg
+    --bg-main: hsl(222, 26%, 31%);
+    --bg-keypad: hsl(223, 31%, 20%);
+    --bg-screen: hsl(224, 36%, 15%);
+
+    // #### Keys
+    --bg-key-blue: hsl(225, 21%, 49%);
+    --shadow-key-blue: hsl(224, 28%, 35%);
+    --bg-key-red: hsl(6, 63%, 50%);
+    --shadow-key-red: hsl(6, 70%, 34%);
+    --bg-key-light: hsl(30, 25%, 89%);
+    --shadow-key-light: hsl(28, 16%, 65%);
+
+    // #### Text
+    --text-white: #ffffff;
+    --text-dark: hsl(221, 14%, 31%);
+  }
+
+  &[data-theme="2"] {
+    // ---- THEME 2
+
+    // bg
+    --bg-main: hsl(0, 0%, 90%);
+    --bg-keypad: hsl(0, 5%, 81%);
+    --bg-screen: hsl(0, 0%, 93%);
+
+    // #### Keys
+    --bg-key-blue: hsl(185, 42%, 37%);
+    --shadow-key-blue: hsl(185, 58%, 25%);
+    --bg-key-red: hsl(25, 98%, 40%);
+    --shadow-key-red: hsl(25, 99%, 27%);
+    --bg-key-light: hsl(45, 7%, 89%);
+    --shadow-key-light: hsl(35, 11%, 61%);
+
+    // #### Text
+    --text-dark: hsl(60, 10%, 19%);
+    --text-white: hsl(60, 10%, 19%);
+  }
+}
+
+// ---
+
+.display-none {
+  display: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+// -----
+
+
+// -----
+
+// .device-mobile {
+  
+// }
