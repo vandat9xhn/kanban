@@ -1,11 +1,23 @@
-export interface AppStateObj {
-  stack: string[];
-  parentTheses: {
-    arr_ix_open: number[];
-    arr_ix_close: [number, number][];
-  };
-  done: boolean;
+export interface Space {
+  id: number;
+  name: string;
+  boards: Board[];
 }
 
-export type handleChangeThemeType = () => void;
-export type handleClickBtnType = (str_key: string) => void;
+export interface Board {
+  id: number;
+  name: string;
+  columns: Column[];
+}
+
+export interface Column {
+  id: number;
+  name: string;
+  cards: Card[];
+}
+
+export interface Card {
+  id: number;
+  title: string;
+  description: string;
+}
