@@ -13,10 +13,10 @@ export const handle_API_SPACE_L = async (): Promise<
   return res;
 };
 
-export const handle_API_SPACE_R = async (): Promise<
-  AxiosResponse<Space, any>
-> => {
-  const res = await API_SPACE_R();
+export const handle_API_SPACEInfo_R = async ({
+  id = 0,
+}): Promise<AxiosResponse<Space, any>> => {
+  const res = await API_SPACE_R({ id });
 
   return { ...res, data: res.data[0] };
 };

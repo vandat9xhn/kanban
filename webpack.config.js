@@ -132,7 +132,7 @@ const config = {
 
     new HtmlWebpackPlugin({
       template: "src/index.html",
-      favicon: 'images/favicon-32x32.png',
+      // favicon: 'images/favicon-32x32.png',
     }),
 
     new CleanWebpackPlugin(),

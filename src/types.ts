@@ -4,6 +4,12 @@ export interface Space {
   boards: Board[];
 }
 
+export interface SpaceInfo {
+  id: number;
+  name: string;
+  boards: { id: number; name: string }[];
+}
+
 export interface Board {
   id: number;
   name: string;
@@ -21,3 +27,7 @@ export interface Card {
   title: string;
   description: string;
 }
+
+// ---
+
+export type handleChangeBoardType = (ix_board: number) => void;

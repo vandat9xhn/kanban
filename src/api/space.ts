@@ -7,7 +7,7 @@ export const API_SPACE_L = () =>
     method: "GET",
   });
 
-export const API_SPACE_R = () =>
+export const API_SPACE_R = ({id = 0}) =>
   axiosClient({
     url: "",
     method: "GET",
