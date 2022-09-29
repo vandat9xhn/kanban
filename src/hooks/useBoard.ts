@@ -1,19 +1,10 @@
 import { useEffect, useState } from "react";
 import * as queryString from "query-string";
 
-import { Board, handleChangeBoardType, SpaceInfo } from "../types";
+import { handleDndType, useBoardState } from "../types";
 import { handle_API_Board_R } from "../api/handle/board";
 import { handle_API_SPACEInfo_R } from "../api/handle/space";
-
-//
-interface useBoardState {
-  space_info: SpaceInfo;
-  boards: { [id: number]: Board };
-  id_board: number;
-
-  fetched: boolean;
-  fetching: boolean;
-}
+import { getNewStateDndEnd } from "../utils/getNewStateDndEnd";
 
 //
 export const useBoard = ({ id_space = 0 }) => {
@@ -92,7 +83,22 @@ export const useBoard = ({ id_space = 0 }) => {
 
   const deleteCard = ({ id_card = "" }) => {};
 
-  const handleDnd = () => {};
+  const handleDnd: handleDndType = ({
+    id_source,
+    ix_source_card,
+    id_des,
+    ix_des_card,
+  }) => {
+    setStateObj((state_obj) => {
+      return getNewStateDndEnd({
+        id_source,
+        ix_source_card,
+        id_des,
+        ix_des_card,
+        state_obj,
+      });
+    });
+  };
 
   // ---
 

@@ -30,4 +30,25 @@ export interface Card {
 
 // ---
 
-export type handleChangeBoardType = (ix_board: number) => void;
+export interface useBoardState {
+  space_info: SpaceInfo;
+  boards: { [id: number]: Board };
+  id_board: number;
+
+  fetched: boolean;
+  fetching: boolean;
+}
+
+// ---
+
+export type handleDndType = ({
+  id_source,
+  ix_source_card,
+  id_des,
+  ix_des_card,
+}: {
+  id_source: number;
+  ix_source_card: number;
+  id_des: number;
+  ix_des_card: number;
+}) => void;

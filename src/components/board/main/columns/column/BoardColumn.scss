@@ -1,0 +1,13 @@
+.BoardColumn_name {
+  margin: 25px 0;
+  padding: 0 5px;
+  text-transform: uppercase;
+}
+
+.BoardColumn_no_task {
+  padding: 15px;
+  background-color: var(--bg-elm);
+  border-radius: 8px;
+  text-align: center;
+  opacity: 0.5;
+}

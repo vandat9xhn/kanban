@@ -2,15 +2,33 @@ $w-sidebar: 280px;
 
 //
 
+.BoardSideBar {
+  z-index: 2;
+}
+
 .BoardSideBar_show {
   position: absolute;
   left: 100%;
   top: 0;
+  padding: 5px;
+}
+.BoardSideBar_show_contain {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+  &:active{
+    transform: scale(0.9);
+  }
 }
 
 .BoardSideBar_contain {
   width: $w-sidebar;
+  box-shadow: 1px 0px 4px var(--box-shadow);
   overflow: hidden;
   transition: width 500ms ease-in;
 }
@@ -26,7 +44,6 @@ $w-sidebar: 280px;
   width: $w-sidebar;
   height: 100vh;
   background-color: var(--bg-elm);
-  box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
 }
 
 .BoardSideBar_heading {

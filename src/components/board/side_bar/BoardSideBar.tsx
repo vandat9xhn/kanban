@@ -27,12 +27,14 @@ function BoardSideBar({}: BoardSideBarProps) {
   //
   return (
     <div className="BoardSideBar pos-rel">
-      <div
-        className={`BoardSideBar_show ${hidden ? "" : "display-none"}`}
-        onClick={showSideBar}
-        title="Show Sidebar"
-      >
-        Sidebar
+      <div className={`BoardSideBar_show ${hidden ? "" : "display-none"}`}>
+        <div
+          className="BoardSideBar_show_contain flex-center"
+          onClick={showSideBar}
+          title="Show Sidebar"
+        >
+          {"->"}
+        </div>
       </div>
 
       <div

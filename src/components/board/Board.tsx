@@ -1,6 +1,8 @@
 import * as React from "react";
 
 import BoardSideBar from "./side_bar/BoardSideBar";
+import BoardMain from "./main/BoardMain";
+
 import "./Board.scss";
 
 //
@@ -15,7 +17,9 @@ function Board({}: BoardProps) {
         <BoardSideBar />
       </div>
 
-      <div className="Board_main"></div>
+      <div className="Board_main">
+        <BoardMain />
+      </div>
     </div>
   );
 }

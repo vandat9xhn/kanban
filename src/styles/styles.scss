@@ -8,6 +8,7 @@ body {
   background-color: var(--bg-main);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: var(--text-primary);
+  font-size: 15px;
 }
 
 h1,
@@ -33,7 +34,7 @@ a {
 
   // bg
   --bg-elm: #2c2c38;
-  --bg-main: hsl(0, 0%, 0%);
+  --bg-main: #21212d;
 
   // ####
   // --bg-key-blue: hsl(185, 42%, 37%);
@@ -49,12 +50,14 @@ a {
 
   --text-blue: #6562b7;
   --bg-blue: #645fc6;
+  --box-shadow: rgba(163, 163, 163, 0.25);
 
   &[data-theme="2"] {
     // ---- THEME 2
 
     // bg
     --bg-main: white;
+    --bg-elm: #c0c0c0;
 
     // ####
     // --bg-key-blue: hsl(225, 21%, 49%);
@@ -65,10 +68,12 @@ a {
     // --shadow-key-light: hsl(28, 16%, 65%);
 
     // #### Text
-    --text-primary: black;
+    --text-primary: rgb(22, 21, 21);
     --text-secondary: hsl(0, 0%, 23%);
 
+    --text-blue: #6562b7;
     --bg-blue: #645fc6;
+    --box-shadow: rgba(63, 63, 63, 0.25);
   }
 
   //

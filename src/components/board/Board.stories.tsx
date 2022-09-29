@@ -12,10 +12,11 @@ import view_task from "../../../design/view_task.jpg";
 import new_task from "../../../design/new_task.jpg";
 
 import Board from "./Board";
+import { getNewStateDndEnd } from "../../utils/getNewStateDndEnd";
 
 const space = arr_space[0] as Space;
 
-const value = false
+let state_obj = false
   ? {
       space_info: { id: space.id, name: "", boards: [] },
       boards: {},
@@ -41,6 +42,20 @@ const value = false
     };
 
 //
+const value = {
+  ...state_obj,
+  handleDnd: ({ id_source, ix_source_card, id_des, ix_des_card }) => {
+    state_obj = getNewStateDndEnd({
+      id_source,
+      ix_source_card,
+      id_des,
+      ix_des_card,
+      state_obj,
+    });
+  },
+};
+
+//
 export default {
   title: "",
   component: Board,
@@ -57,7 +72,7 @@ export const BoardSb = () => {
   return (
     <contextBoard.Provider value={value as null}>
       <Board />
-      <img style={{ width: "100%" }} src={pc} alt="" />
+      {/* <img style={{ width: "100%" }} src={pc} alt="" /> */}
       {/* <img style={{ width: "100%" }} src={mb} alt="" />
       <img style={{ width: "100%" }} src={new_task} alt="" />
       <img style={{ width: "100%" }} src={view_task} alt="" /> */}

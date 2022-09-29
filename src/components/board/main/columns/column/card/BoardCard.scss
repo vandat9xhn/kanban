@@ -1,0 +1,15 @@
+.BoardCard {
+  padding-bottom: 25px;
+}
+
+.BoardCard_contain {
+  padding: 20px 15px;
+  border-radius: 8px;
+  background-color: var(--bg-elm);
+}
+
+.BoardCard_description {
+  margin-top: 5px;
+  color: var(--text-secondary);
+  font-size: 13px;
+}

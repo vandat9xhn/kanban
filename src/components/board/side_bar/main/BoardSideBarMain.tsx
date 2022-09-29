@@ -38,12 +38,12 @@ function BoardSideBarMain({ hideSideBar }: BoardSideBarMainProps) {
           ))}
 
           <div className="BoardSideBarMain_create board-sidebar-main-board ">
-            +Create New Board
+            + Create New Board
           </div>
         </div>
 
         <div className="BoardSideBarMain_foot">
-          <div>
+          <div className="BoardSideBarMain_mode">
             <LightMode />
           </div>
 

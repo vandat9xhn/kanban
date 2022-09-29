@@ -1,0 +1,29 @@
+.BoardColumns {
+  padding: 0 25px;
+  font-weight: 500;
+}
+
+.BoardColumns_item {
+  flex-shrink: 0;
+  width: 285px;
+  padding-right: 25px;
+}
+
+.BoardColumns_create {
+  margin-top: 70px;
+  width: 300px;
+  padding-bottom: 25px;
+}
+
+.BoardColumns_create_contain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background-color: var(--bg-elm);
+  font-size: 27px;
+  color: var(--text-secondary);
+}

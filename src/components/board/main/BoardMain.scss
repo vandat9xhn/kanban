@@ -1,0 +1,21 @@
+.BoardMain {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.BoardMain_row {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.BoardMain_header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.BoardMain_columns {
+  flex-grow: 1;
+  height: 1rem;
+}
