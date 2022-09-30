@@ -127,6 +127,14 @@ a {
   position: relative;
 }
 
+.pos-fix-100per {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 // -----
 
 .w-100per {
@@ -142,8 +150,30 @@ a {
   height: 100%;
 }
 
-.overflow-hidden{
+.overflow-hidden {
   overflow: hidden;
+}
+
+// --------- HOVER ACTIVE
+
+.hv-opacity-09 {
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.active-scale-096 {
+  &:active {
+    transform: scale(0.96);
+  }
+}
+
+.pointer-events-none {
+  pointer-events: none;
+}
+
+.opacity-05 {
+  opacity: 0.5;
 }
 
 // -----

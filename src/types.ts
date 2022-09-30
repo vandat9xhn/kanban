@@ -1,3 +1,7 @@
+export type funcVoid = () => void;
+
+//
+
 export interface Space {
   id: number;
   name: string;
@@ -26,6 +30,13 @@ export interface Card {
   id: number;
   title: string;
   description: string;
+  subtasks: Subtask[];
+}
+
+export interface Subtask {
+  id: number;
+  description: string;
+  done: boolean;
 }
 
 // ---
@@ -52,3 +63,19 @@ export type handleDndType = ({
   id_des: number;
   ix_des_card: number;
 }) => void;
+
+//
+export interface AddTaskState {
+  title: string;
+  description: string;
+  status_task: string;
+  subtasks: Subtask[];
+}
+
+export type changeSubtaskDescriptionType = (
+  ix: number,
+  description: string
+) => void;
+export type deleteSubtaskType = (ix: number) => void;
+
+export type handleCreateCardType = (props: AddTaskState) => void;

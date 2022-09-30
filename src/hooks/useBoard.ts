@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import * as queryString from "query-string";
 
-import { handleDndType, useBoardState } from "../types";
+import { handleCreateCardType, handleDndType, useBoardState } from "../types";
 import { handle_API_Board_R } from "../api/handle/board";
 import { handle_API_SPACEInfo_R } from "../api/handle/space";
 import { getNewStateDndEnd } from "../utils/getNewStateDndEnd";
+import { getNewStateAddCard } from "../utils/getNewStateAddCard";
+import { handle_API_Card_C } from "../api/handle/card";
 
 //
 export const useBoard = ({ id_space = 0 }) => {
@@ -79,9 +81,41 @@ export const useBoard = ({ id_space = 0 }) => {
 
   const deleteColumn = ({ id_column }) => {};
 
-  const createCard = ({ title = "" }) => {};
+  //
+
+  const handleCreateCard: handleCreateCardType = async ({
+    title,
+    description,
+    status_task,
+    subtasks,
+  }) => {
+    setStateObj((state_obj) => ({
+      ...state_obj,
+      fetching: true,
+    }));
+    
+    const { data } = await handle_API_Card_C({
+      title,
+      description,
+      status_task,
+      subtasks,
+    });
+
+    setStateObj((state_obj) => {
+      return {
+        ...getNewStateAddCard({
+          ...data,
+          status_task,
+          state_obj,
+        }),
+        fetching: false,
+      };
+    });
+  };
 
   const deleteCard = ({ id_card = "" }) => {};
+
+  //
 
   const handleDnd: handleDndType = ({
     id_source,
@@ -100,6 +134,8 @@ export const useBoard = ({ id_space = 0 }) => {
     });
   };
 
+  //
+
   // ---
 
   return {
@@ -110,10 +146,10 @@ export const useBoard = ({ id_space = 0 }) => {
 
     createColumn,
     deleteColumn,
-    createCard,
     deleteCard,
 
     handleDnd,
+    handleCreateCard,
   };
 };
 

@@ -39,6 +39,7 @@ function BoardColumn({ name_col, cards, droppableId }: BoardColumnProps) {
                 <BoardCard
                   title={item.title}
                   description={item.description}
+                  subtasks={item.subtasks}
                   draggableId={`${droppableId}_${item.id}`}
                   index={ix}
                 />

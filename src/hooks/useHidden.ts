@@ -1,28 +1,21 @@
-import * as React from "react";
+import { useBool } from "./useBool";
 
 //
-export const useHidden = () => {
+export const useHidden = (initial_hidden = false) => {
   //
-  const [hidden, setHidden] = React.useState(false);
+  const { is_true, setBoolFalse, setBoolTrue, toggleBool } =
+    useBool(initial_hidden);
 
   // -----
 
-  const showSideBar = () => {
-    setHidden(false);
-  };
-
-  const hideSideBar = () => {
-    setHidden(true);
-  };
-
-  const toggleSideBar = () => {
-    setHidden((hidden) => !hidden);
-  };
+  const showSideBar = setBoolFalse;
+  const hideSideBar = setBoolTrue;
+  const toggleSideBar = toggleBool;
 
   //
 
   return {
-    hidden,
+    hidden: is_true,
     showSideBar,
     hideSideBar,
     toggleSideBar,

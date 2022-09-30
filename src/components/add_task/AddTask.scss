@@ -1,0 +1,70 @@
+.add-task-ip {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--text-secondary);
+  border-radius: 5px;
+  background-color: transparent;
+
+  color: inherit;
+  font-weight: 400;
+  outline: none;
+}
+
+// ---
+
+.AddTask {
+  padding: 10px 30px 30px;
+  border-radius: inherit;
+  background-color: var(--bg-elm);
+  // opacity: 0.5;
+}
+
+.AddTask_part {
+  margin-bottom: 20px;
+}
+
+.AddTask_heading {
+  position: sticky;
+  top: 0;
+  background-color: inherit;
+  font-size: 17px;
+  padding: 20px 0;
+}
+
+.AddTask_label {
+  margin-bottom: 5px;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.AddTask_description {
+  resize: none;
+}
+
+.AddTask_add_sub {
+  background-color: #fff;
+  color: var(--text-blue);
+}
+
+.AddTask_select {
+  option {
+    color: initial;
+  }
+}
+
+.AddTask_create {
+  background-color: var(--bg-blue);
+  color: white;
+}
+
+// ----
+
+.device-mobile {
+  .AddTask {
+    padding: 15px;
+  }
+
+  .AddTask_heading {
+    padding-top: 5px;
+  }
+}
