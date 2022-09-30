@@ -17,7 +17,9 @@ function ContextBoardComponent({ children }: ContextBoardComponentProps) {
 
   //
   return (
-    <contextBoard.Provider value={value}>{children}</contextBoard.Provider>
+    <contextBoard.Provider value={value}>
+      {value.fetched ? children : null}
+    </contextBoard.Provider>
   );
 }
 

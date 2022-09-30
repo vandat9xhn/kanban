@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Droppable } from "react-beautiful-dnd";
 
-import { Card } from "../../../../../types";
+import { Card, openModalViewTaskType } from "../../../../../types";
 
 import "./BoardColumn.scss";
 
@@ -12,10 +12,16 @@ export interface BoardColumnProps {
   name_col: string;
   cards: Card[];
   droppableId: string;
+  openModalViewTask: openModalViewTaskType;
 }
 
 //
-function BoardColumn({ name_col, cards, droppableId }: BoardColumnProps) {
+function BoardColumn({
+  name_col,
+  cards,
+  droppableId,
+  openModalViewTask,
+}: BoardColumnProps) {
   //
   return (
     <Droppable droppableId={droppableId}>
@@ -42,6 +48,7 @@ function BoardColumn({ name_col, cards, droppableId }: BoardColumnProps) {
                   subtasks={item.subtasks}
                   draggableId={`${droppableId}_${item.id}`}
                   index={ix}
+                  openModalViewTask={openModalViewTask}
                 />
               </div>
             ))}

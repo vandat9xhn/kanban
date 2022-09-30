@@ -1,0 +1,15 @@
+.ViewSubtask {
+  padding: 10px;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.ViewSubtask_description {
+  margin-left: 12px;
+  font-size: 13px;
+}
+.ViewSubtask_description-done{
+  text-decoration: line-through;
+  color: var(--text-secondary);
+}

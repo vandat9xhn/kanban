@@ -39,6 +39,12 @@ export interface Subtask {
   done: boolean;
 }
 
+//
+
+export type openModalViewTaskType = (id_view_task: string) => void;
+
+export type toggleSubtaskType = (id_subtask: number) => void;
+
 // ---
 
 export interface useBoardState {
@@ -48,6 +54,9 @@ export interface useBoardState {
 
   fetched: boolean;
   fetching: boolean;
+  
+  ix_col_view_task: number;
+  ix_card_view_task: number;
 }
 
 // ---

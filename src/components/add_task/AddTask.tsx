@@ -109,15 +109,15 @@ function AddTask({ handleCreateCard }: AddTaskProps) {
 
   //
   return (
-    <div className="AddTask">
-      <h2 className="AddTask_heading">Add New Task</h2>
+    <div className="AddTask modal_contain">
+      <h2 className="AddTask_heading modal_heading">Add New Task</h2>
 
-      <div className="AddTask_part">
-        <div className="AddTask_label">Title</div>
+      <div className="AddTask_part modal_part">
+        <div className="AddTask_label modal_label">Title</div>
 
         <div>
           <input
-            className="add-task-ip"
+            className="modal_ip"
             name="title"
             type="text"
             value={title}
@@ -127,12 +127,12 @@ function AddTask({ handleCreateCard }: AddTaskProps) {
         </div>
       </div>
 
-      <div className="AddTask_part">
-        <div className="AddTask_label">Description</div>
+      <div className="AddTask_part modal_part">
+        <div className="AddTask_label modal_label">Description</div>
 
         <div>
           <textarea
-            className="AddTask_description add-task-ip"
+            className="AddTask_description modal_ip"
             name="description"
             rows={6}
             value={description}
@@ -142,8 +142,8 @@ function AddTask({ handleCreateCard }: AddTaskProps) {
         </div>
       </div>
 
-      <div className="AddTask_part">
-        <div className="AddTask_label">Subtasks</div>
+      <div className="AddTask_part modal_part">
+        <div className="AddTask_label modal_label">Subtasks</div>
 
         <div>
           <div>
@@ -169,18 +169,18 @@ function AddTask({ handleCreateCard }: AddTaskProps) {
         </div>
       </div>
 
-      <div className="AddTask_part">
-        <div className="AddTask_label">Status</div>
+      <div className="AddTask_part modal_part">
+        <div className="AddTask_label modal_label">Status</div>
 
         <div>
           <select
-            className="AddTask_select add-task-ip"
+            className="AddTask_select modal_ip"
             name="status_task"
             value={status_task}
             onChange={handleChange}
           >
             {arr_column_name.map((item, ix) => (
-              <option key={ix}>{item}</option>
+              <option className="modal_option" key={ix}>{item}</option>
             ))}
           </select>
         </div>

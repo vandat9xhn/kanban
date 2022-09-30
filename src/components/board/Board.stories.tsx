@@ -2,7 +2,7 @@ import * as React from "react";
 import { withRouter } from "storybook-addon-react-router-v6";
 import { contextBoard } from "../../context/board/contextBoard";
 import "../../styles/styles.scss";
-import { handleCreateCardType } from "../../types";
+import { handleCreateCardType, useBoardState } from "../../types";
 // import pc from "../../../design/pc.jpg";
 // import mb from "../../../design/mb.jpg";
 import new_task from "../../../design/new_task.jpg";
@@ -16,7 +16,7 @@ import { IS_MOBILE } from "../../constant";
 
 const space = DEFAULT_ARR_SPACE[0];
 
-let state_obj = false
+let state_obj: useBoardState = false
   ? {
       space_info: { id: space.id, name: "", boards: [] },
       boards: {},
@@ -24,6 +24,9 @@ let state_obj = false
 
       fetched: false,
       fetching: false,
+
+      ix_col_view_task: 0,
+      ix_card_view_task: 0,
     }
   : {
       space_info: {
@@ -39,6 +42,9 @@ let state_obj = false
 
       fetched: true,
       fetching: false,
+
+      ix_col_view_task: 0,
+      ix_card_view_task: 0,
     };
 
 //
@@ -72,6 +78,10 @@ const value = {
       state_obj,
     });
   },
+
+  openModalViewTask: (id_view_task = "") => {
+    console.log(id_view_task);
+  },
 };
 
 //
@@ -97,7 +107,7 @@ export const BoardSb = () => {
       html.classList.add("device-mobile");
     }
   }, []);
-  
+
   return (
     <contextBoard.Provider value={value as null}>
       <Board />

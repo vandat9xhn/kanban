@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 import * as queryString from "query-string";
 
-import { handleCreateCardType, handleDndType, useBoardState } from "../types";
+import {
+  handleCreateCardType,
+  handleDndType,
+  openModalViewTaskType,
+  useBoardState,
+} from "../types";
 import { handle_API_Board_R } from "../api/handle/board";
 import { handle_API_SPACEInfo_R } from "../api/handle/space";
 import { getNewStateDndEnd } from "../utils/getNewStateDndEnd";
@@ -18,6 +23,9 @@ export const useBoard = ({ id_space = 0 }) => {
 
     fetched: false,
     fetching: false,
+
+    ix_col_view_task: -1,
+    ix_card_view_task: -1,
   });
 
   //
@@ -93,7 +101,7 @@ export const useBoard = ({ id_space = 0 }) => {
       ...state_obj,
       fetching: true,
     }));
-    
+
     const { data } = await handle_API_Card_C({
       title,
       description,
@@ -134,6 +142,32 @@ export const useBoard = ({ id_space = 0 }) => {
     });
   };
 
+  const openModalViewTask: openModalViewTaskType = (id_view_task) => {
+    setStateObj((state_obj) => {
+      const columns = state_obj.boards[state_obj.id_board].columns;
+      const ix_col_view_task = columns.findIndex(
+        (item) => item.id === parseInt(id_view_task.split("_")[0])
+      );
+      const ix_card_view_task = columns[ix_col_view_task].cards.findIndex(
+        (item) => item.id === parseInt(id_view_task.split("_")[1])
+      );
+
+      return {
+        ...state_obj,
+        ix_col_view_task: ix_col_view_task,
+        ix_card_view_task: ix_card_view_task,
+      };
+    });
+  };
+
+  const closeModalViewTask = () => {
+    setStateObj((state_obj) => ({
+      ...state_obj,
+      ix_card_view_task: -1,
+      ix_col_view_task: -1,
+    }));
+  };
+
   //
 
   // ---
@@ -146,10 +180,13 @@ export const useBoard = ({ id_space = 0 }) => {
 
     createColumn,
     deleteColumn,
+
+    handleCreateCard,
     deleteCard,
 
     handleDnd,
-    handleCreateCard,
+    openModalViewTask,
+    closeModalViewTask,
   };
 };
 

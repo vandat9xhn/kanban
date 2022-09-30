@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Draggable } from "react-beautiful-dnd";
-import { Subtask } from "../../../../../../types";
+import { openModalViewTaskType, Subtask } from "../../../../../../types";
+import { getCountDoneSubtask } from "../../../../../../utils/getCountDoneSubtask";
 
 import "./BoardCard.scss";
 
@@ -11,6 +12,7 @@ export interface BoardCardProps {
   subtasks: Subtask[];
   draggableId: string;
   index: number;
+  openModalViewTask: openModalViewTaskType;
 }
 
 //
@@ -20,16 +22,15 @@ function BoardCard({
   subtasks,
   draggableId,
   index,
+  openModalViewTask,
 }: BoardCardProps) {
   //
-  const count_done = (() => {
-    let i = 0;
-    subtasks.forEach((item) => {
-      i += item.done ? 1 : 0;
-    });
+  const count_done = getCountDoneSubtask(subtasks);
 
-    return i;
-  })();
+  //
+  const onClick = () => {
+    openModalViewTask(draggableId);
+  };
 
   //
   return (
@@ -43,7 +44,7 @@ function BoardCard({
             ...provided.draggableProps.style,
           }}
         >
-          <div className="BoardCard">
+          <div className="BoardCard" onClick={onClick}>
             <div className="BoardCard_contain">
               <div>{title}</div>
 
@@ -51,7 +52,7 @@ function BoardCard({
 
               {subtasks.length === 0 ? null : (
                 <div className="BoardCard_done">
-                  {count_done} of {subtasks.length - count_done} subtasks
+                  {count_done} of {subtasks.length} subtasks
                 </div>
               )}
             </div>

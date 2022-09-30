@@ -1,15 +1,17 @@
 import { AxiosResponse } from "axios";
+import { DEFAULT_ARR_SPACE } from "../../default/space";
 
 import { Board } from "../../types";
 
-import { API_Board_R } from "../board";
+// import { API_Board_R } from "../board";
 
 //
 export const handle_API_Board_R = async ({
   id = 0,
 }): Promise<AxiosResponse<Board, any>> => {
-  const res = await API_Board_R();
-  const data = res.data.find((item) => item.id === id);
+  // const res = await API_Board_R();
+  const res = { data: {} };
+  const data = DEFAULT_ARR_SPACE[0].boards.find((item) => item.id === id);
 
   return { ...res, data: data };
 };

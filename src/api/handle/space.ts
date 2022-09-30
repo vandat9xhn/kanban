@@ -1,14 +1,16 @@
 import { AxiosResponse } from "axios";
+import { DEFAULT_ARR_SPACE } from "../../default/space";
 
 import { Space } from "../../types";
 
-import { API_SPACE_L, API_SPACE_R } from "../space";
+// import { API_SPACE_L, API_SPACE_R } from "../space";
 
 //
 export const handle_API_SPACE_L = async (): Promise<
   AxiosResponse<Space[], any>
 > => {
-  const res = await API_SPACE_L();
+  // const res = await API_SPACE_L();
+  const res = { data: DEFAULT_ARR_SPACE };
 
   return res;
 };
@@ -16,9 +18,10 @@ export const handle_API_SPACE_L = async (): Promise<
 export const handle_API_SPACEInfo_R = async ({
   id = 0,
 }): Promise<AxiosResponse<Space, any>> => {
-  const res = await API_SPACE_R({ id });
+  // const res = await API_SPACE_R({ id });
+  const res = { data: DEFAULT_ARR_SPACE[0] };
 
-  return { ...res, data: res.data[0] };
+  return res;
 };
 
 let space_id = 100;

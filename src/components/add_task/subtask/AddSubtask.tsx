@@ -36,7 +36,7 @@ function AddSubtask({
     <div className="AddSubtask flex items-center">
       <div className="grow-1">
         <input
-          className="AddSubtask_ip add-task-ip"
+          className="AddSubtask_ip modal_ip"
           type="text"
           value={description}
           placeholder="Subtask Description"

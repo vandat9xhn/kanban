@@ -16,14 +16,28 @@ export const DEFAULT_ARR_SPACE: Space[] = [
             cards: [
               {
                 id: 1,
-                title: "Card 1.1 as das asd asd adad a dasdadsaadaasadas as das",
-                description: "Description of Card 1.1 asd asd asdasd asd asd asd asd adadadadas",
-                subtasks: [],
+                title:
+                  "Card 1.1 as das asd asd adad a dasdadsaadaasadas as das",
+                description:
+                  "Description of Card 1.1 asd asd asdasd asd asd asd asd adadadadas",
+                subtasks: [
+                  {
+                    id: 1,
+                    description: "adsad asd as as as asd as a",
+                    done: false,
+                  },
+                ],
               },
               {
                 id: 2,
                 title: "Card 1.2",
-                subtasks: [],
+                subtasks: [
+                  {
+                    id: 2,
+                    description: "2131 312 3 12 312341 312 12jk",
+                    done: true,
+                  },
+                ],
                 description: "Description of Card 1.2",
               },
             ],
