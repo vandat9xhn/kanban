@@ -1,5 +1,6 @@
 import * as React from "react";
 
+import { IS_MOBILE } from "../../../../constant";
 import { contextBoard } from "../../../../context/board/contextBoard";
 
 import LightMode from "../../../light_mode/LightMode";
@@ -13,7 +14,7 @@ import BoardSidebarToggle, {
 
 //
 export interface BoardSideBarMainProps {
-  hideSideBar: BoardSidebarToggleProps["hideSideBar"];
+  hideSideBar?: BoardSidebarToggleProps["hideSideBar"];
 }
 
 //
@@ -47,9 +48,11 @@ function BoardSideBarMain({ hideSideBar }: BoardSideBarMainProps) {
             <LightMode />
           </div>
 
-          <div>
-            <BoardSidebarToggle hideSideBar={hideSideBar} />
-          </div>
+          {IS_MOBILE ? null : (
+            <div>
+              <BoardSidebarToggle hideSideBar={hideSideBar} />
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -113,6 +113,14 @@ a {
   align-items: center;
 }
 
+.grow-1 {
+  flex-grow: 1;
+}
+
+.shrink-0 {
+  flex-shrink: 0;
+}
+
 // ----
 
 .pos-rel {
@@ -134,8 +142,14 @@ a {
   height: 100%;
 }
 
+.overflow-hidden{
+  overflow: hidden;
+}
+
 // -----
 
-// .device-mobile {
-
-// }
+.device-mobile {
+  &:root {
+    --height-header: 72px;
+  }
+}

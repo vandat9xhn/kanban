@@ -1,27 +1,20 @@
 import * as React from "react";
 
-import BoardSideBar from "./side_bar/BoardSideBar";
-import BoardMain from "./main/BoardMain";
+import { IS_MOBILE } from "../../constant";
 
-import "./Board.scss";
+import BoardMb from "./mb/BoardMb";
+import BoardPc from "./pc/BoardPc";
 
 //
 export interface BoardProps {}
 
 //
 function Board({}: BoardProps) {
-  //
-  return (
-    <div className="Board">
-      <div className="Board_sidebar">
-        <BoardSideBar />
-      </div>
+  if (!IS_MOBILE) {
+    return <BoardPc />;
+  }
 
-      <div className="Board_main">
-        <BoardMain />
-      </div>
-    </div>
-  );
+  return <BoardMb />;
 }
 
 export default Board;

@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useHidden } from "../../../hooks/useHidden";
 
 import IconKanban from "../../../icons/kanban/IconKanban";
 
@@ -12,17 +13,7 @@ export interface BoardSideBarProps {}
 //
 function BoardSideBar({}: BoardSideBarProps) {
   //
-  const [hidden, setHidden] = React.useState(false);
-
-  // -----
-
-  const showSideBar = () => {
-    setHidden(false);
-  };
-
-  const hideSideBar = () => {
-    setHidden(true);
-  };
+  const { hidden, showSideBar, hideSideBar } = useHidden();
 
   //
   return (
