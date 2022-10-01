@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import { funcVoid } from "../../../types";
+import BtnMaxWidth from "../../buttons/max_width/BtnMaxWidth";
 
 import "./AddTaskBtn.scss";
 
@@ -19,13 +20,13 @@ function AddTaskBtn({
 }: AddTaskBtnProps) {
   //
   return (
-    <button
-      className={`AddTaskBtn w-100per hv-opacity-09 active-scale-096 ${className}`}
+    <BtnMaxWidth
+      className={`AddTaskBtn ${className}`}
       type="button"
       onClick={handleClick}
     >
       {children}
-    </button>
+    </BtnMaxWidth>
   );
 }
 

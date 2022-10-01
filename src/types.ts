@@ -41,6 +41,9 @@ export interface Subtask {
 
 //
 
+export type handleCreateBoardType = ({ name }: { name: string }) => void;
+export type handleCreateColumnType = ({ name }: { name: string }) => void;
+
 export type openModalViewTaskType = (id_view_task: string) => void;
 
 export type toggleSubtaskType = (id_subtask: number) => void;
@@ -54,9 +57,16 @@ export interface useBoardState {
 
   fetched: boolean;
   fetching: boolean;
-  
-  ix_col_view_task: number;
-  ix_card_view_task: number;
+
+  modal: {
+    add_board: boolean,
+    add_column: boolean,
+    add_task: boolean,
+    view_task: {
+      ix_col_view_task: number;
+      ix_card_view_task: number;
+    }
+  },
 }
 
 // ---

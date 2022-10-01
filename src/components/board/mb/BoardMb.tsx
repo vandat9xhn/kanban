@@ -2,16 +2,13 @@ import * as React from "react";
 
 import { contextBoard } from "../../../context/board/contextBoard";
 import { useHidden } from "../../../hooks/useHidden";
-import { useBool } from "../../../hooks/useBool";
 
 import IconKanban from "../../../icons/kanban/IconKanban";
-import ModalAddTask from "../../modals/add_task/ModalAddTask";
 
 import "./BoardMb.scss";
 
 import BoardColumns from "../main/columns/BoardColumns";
 import BoardSideBarMain from "../side_bar/main/BoardSideBarMain";
-import { handleCreateCardType } from "../../../types";
 
 //
 export interface BoardMbProps {}
@@ -19,19 +16,14 @@ export interface BoardMbProps {}
 //
 function BoardMb({}: BoardMbProps) {
   //
-  const { boards, id_board, handleCreateCard } = React.useContext(contextBoard);
+  const { boards, id_board, openModalAddTask } = React.useContext(contextBoard);
+
+  const { hidden, toggleSideBar, hideSideBar } = useHidden(true);
 
   //
-  const { is_true, setBoolFalse, setBoolTrue } = useBool(false);
-
-  const { hidden, toggleSideBar } = useHidden(true);
-
-  // ---
-
-  const onCreateCard: handleCreateCardType = (data_card) => {
-    setBoolFalse();
-    handleCreateCard(data_card);
-  };
+  React.useEffect(() => {
+    hideSideBar();
+  }, [id_board]);
 
   //
   return (
@@ -53,7 +45,7 @@ function BoardMb({}: BoardMbProps) {
 
           <div
             className="BoardMb_create_task flex-center shrink-0"
-            onClick={setBoolTrue}
+            onClick={openModalAddTask}
           >
             <span className="BoardMb_create_task_text">+</span>
           </div>
@@ -67,13 +59,6 @@ function BoardMb({}: BoardMbProps) {
       <div className="BoardMb_columns">
         <BoardColumns />
       </div>
-
-      {is_true ? (
-        <ModalAddTask
-          handleCreateCard={onCreateCard}
-          closeModal={setBoolFalse}
-        />
-      ) : null}
     </div>
   );
 }

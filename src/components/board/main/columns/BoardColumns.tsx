@@ -6,7 +6,6 @@ import {
 } from "react-beautiful-dnd";
 
 import { contextBoard } from "../../../../context/board/contextBoard";
-import ModalViewTask from "../../../modals/view_task/ModalViewTask";
 
 import "./BoardColumns.scss";
 
@@ -21,11 +20,10 @@ function BoardColumns({}: BoardColumnsProps) {
   const {
     boards,
     id_board,
-    ix_col_view_task,
 
     handleDnd,
     openModalViewTask,
-    closeModalViewTask,
+    openModalAddColumn,
   } = React.useContext(contextBoard);
 
   //
@@ -43,8 +41,6 @@ function BoardColumns({}: BoardColumnsProps) {
       ix_des_card: destination.index,
     });
   };
-
-  const showModalCreateColumn = () => {};
 
   //
   return (
@@ -65,15 +61,11 @@ function BoardColumns({}: BoardColumnsProps) {
 
         <div
           className="BoardColumns_item BoardColumns_create"
-          onClick={showModalCreateColumn}
+          onClick={openModalAddColumn}
         >
           <div className="BoardColumns_create_contain">+ New Column</div>
         </div>
       </div>
-
-      {ix_col_view_task < 0 ? null : (
-        <ModalViewTask closeModal={closeModalViewTask} />
-      )}
     </div>
   );
 }

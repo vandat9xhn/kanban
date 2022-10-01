@@ -13,8 +13,8 @@ export interface ViewTaskProps {}
 //
 function ViewTask({}: ViewTaskProps) {
   //
-  const { ix_col_view_task, ix_card_view_task, boards, id_board, handleDnd } =
-    React.useContext(contextBoard);
+  const { modal, boards, id_board, handleDnd } = React.useContext(contextBoard);
+  const { ix_col_view_task, ix_card_view_task } = modal.view_task;
 
   const arr_column_name = boards[id_board].columns.map((item) => item.name);
   const card =

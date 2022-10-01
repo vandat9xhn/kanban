@@ -19,7 +19,8 @@ export interface BoardSideBarMainProps {
 
 //
 function BoardSideBarMain({ hideSideBar }: BoardSideBarMainProps) {
-  const { space_info, id_board } = React.useContext(contextBoard);
+  const { space_info, id_board, openModalAddBoard } =
+    React.useContext(contextBoard);
   //
   return (
     <div className="BoardSideBarMain h-100per">
@@ -38,7 +39,10 @@ function BoardSideBarMain({ hideSideBar }: BoardSideBarMainProps) {
             />
           ))}
 
-          <div className="BoardSideBarMain_create board-sidebar-main-board ">
+          <div
+            className="BoardSideBarMain_create board-sidebar-main-board"
+            onClick={openModalAddBoard}
+          >
             + Create New Board
           </div>
         </div>
